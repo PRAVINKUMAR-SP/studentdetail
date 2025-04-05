@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "pravin",
+      "address": "ariyalur",
+      "email": "pravin007ptk@gmail.com",
+      "contact": "8072628827",
+      "": "807262882"
+    },
+    {
+      "id": "5739",
+      "name": "logi",
+      "email": "logi@gmail.com",
+      "contact": "2345678",
+      "address": "H/o  saranraj,coimbatore"
+    }
+  ]
+}
