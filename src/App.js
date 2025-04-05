@@ -12,7 +12,7 @@ const initialState={
   name:"",
   email:"",
   contact:"",
-  address:""
+  sity:""
 };
 
 function App(){
@@ -21,7 +21,7 @@ function App(){
   const[userId,setUserId] =useState(null);
   const[editMode,setEditMod]=useState(false);
 
-  const {name,email,contact,address}=state;
+  const {name,email,contact,sity}=state;
 
   const loadUsers = async ()=>{
     const response = await axios.get(api);
@@ -52,20 +52,20 @@ const handleUpdate =(id)=>{
 
   const handleSubmit =(e) => {
     e.preventDefault();
-    if(!name || !email || !contact || !address){
+    if(!name || !email || !contact || !sity){
       toast.error("Please fill all the fields");
     }
     else{
       if(!editMode){
         axios.post(api,state);
-        setState({name:"",email:"",contact:"",address:""});
+        setState({name:"",email:"",contact:"",sity:""});
         toast.success("User added successfully");
         setTimeout(()=>
           loadUsers(),500);
       }
       else{
         axios.put(`${api}/${userId}`,state);
-        setState({name:"",email:"",contact:"",address:""});
+        setState({name:"",email:"",contact:"",sity:""});
         toast.success("Updated successfully");
         setTimeout(()=>
           loadUsers(),500);
@@ -103,7 +103,7 @@ const handleUpdate =(id)=>{
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Address</Form.Label>
-              <Form.Control type="text" placeholder="Enter Address" name='address' value={address} onChange={handleChange} />
+              <Form.Control type="text" placeholder="Enter sity" name='sity' value={sity} onChange={handleChange} />
             </Form.Group>
 
             <Button variant="primary" type="submit">
@@ -119,7 +119,7 @@ const handleUpdate =(id)=>{
               <td>Name</td>
               <td>Email</td>
               <td>Contact</td>
-              <td>Address</td>
+              <td>Sity</td>
               <td>Action</td>
             </tr>
           </thead>
@@ -130,7 +130,7 @@ const handleUpdate =(id)=>{
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.contact}</td>
-                <td>{item.address}</td>
+                <td>{item.sity}</td>
                 <td>
                   <ButtonGroup>
                     <Button variant='success' style={{marginRight:"5px"}} onClick={()=>handleUpdate(item.id)} >Update</Button>
